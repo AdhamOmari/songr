@@ -1,26 +1,41 @@
-package albumModel;
+package com.example.songr.albumModel;
 
-public class albummodel {
 
-        private String title;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+
+@Entity
+public class Albummodel {
+    @Id
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    private String title;
         private String artist;
         private int songCount;
         private int length;
         private String imageUrl;
 
-        public albummodel(String title, String artist, int songCount, int length, String imageUrl) {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
+    public Albummodel(String title, String artist, int songCount, int length, String imageUrl) {
             this.title = title;
             this.artist = artist;
             this.songCount = songCount;
             this.length = length;
             this.imageUrl = imageUrl;
         }
-
-
-
-
-
-
 
 
 
@@ -63,6 +78,17 @@ public class albummodel {
         public void setImageUrl(String imageUrl) {
             this.imageUrl = imageUrl;
         }
+
+    @Override
+    public String toString() {
+        return "Albummodel{" +
+                "title='" + title + '\'' +
+                ", artist='" + artist + '\'' +
+                ", songCount=" + songCount +
+                ", length=" + length +
+                ", imageUrl='" + imageUrl + '\'' +
+                '}';
     }
+}
 
 
