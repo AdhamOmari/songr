@@ -8,3 +8,9 @@
 > and an imageUrl that is a link to that album’s art.
 > 
 > Testing the constructor setter and gitter
+> 
+> 
+> 
+> lab 12 
+>  creat model so that it can be saved in a database.
+An Album has a title, an artist, a songCount, a length (in seconds), and an imageUrl that is a link to that album’s art.
