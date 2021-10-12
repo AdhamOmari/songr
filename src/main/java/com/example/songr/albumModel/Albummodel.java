@@ -11,7 +11,7 @@ public class Albummodel  {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
-    @OneToMany(mappedBy = "album")
+    @OneToMany Song song
 
     private List<Song> songs;
     private String title;
