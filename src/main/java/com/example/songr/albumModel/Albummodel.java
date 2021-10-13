@@ -2,18 +2,25 @@ package com.example.songr.albumModel;
 
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
-public class Albummodel {
+public class Albummodel  {
+
+    public Albummodel( ) {
+
+    }
+
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
+    @OneToMany(mappedBy = "album")
+
+    private List<Song> songs;
     private String title;
         private String artist;
         private int songCount;
@@ -89,6 +96,7 @@ public class Albummodel {
                 ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
+
 }
 
 

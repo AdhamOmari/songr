@@ -3,6 +3,7 @@ package com.example.songr.controller;
 
 import com.example.songr.repo.AlbumRepository;
 import com.example.songr.albumModel.Albummodel;
+import com.example.songr.repo.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,8 @@ import java.util.List;
 public class albumControll {
     @Autowired
     private AlbumRepository postRepository;
+    @Autowired
+    SongRepository songRepository;
 
 
 //    @ResponseBody
@@ -67,4 +70,11 @@ public class albumControll {
         model.addAttribute("albums", postRepository.findAll());
         return "albums";
     }
+    @GetMapping("/err")
+    public String getNoSong(){
+        return "err";
+    }
+
 }
+
+
