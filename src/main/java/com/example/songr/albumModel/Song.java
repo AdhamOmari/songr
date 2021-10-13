@@ -2,74 +2,71 @@ package com.example.songr.albumModel;
 
 import javax.persistence.*;
 
-@Entity
-public class Song {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String title;
-    private int length;
-    private int trackNumber;
+    @Entity
+    public class Song {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "id", nullable = false)
+        private Long id;
 
 
-    @ManyToOne
-    private Albummodel album;
+        private String title;
+        private int length;
+        private int trackNumber;
 
-    public Song(){}
+        @ManyToOne
+        @JoinColumn(name = "album_id")
+        private Albummodel album;
 
-    public Song(String title, int length, int trackNumber , Albummodel album) {
-        this.title = title;
-        this.length = length;
-        this.trackNumber = trackNumber;
-        this.album = album;
-    }
+        public Albummodel getAlbum() {
+            return album;
+        }
 
-    public int getId() {
-        return id;
-    }
+        public Song() {
 
-    public void setId(int id) {
-        this.id = id;
-    }
+        }
 
-    public String getTitle() {
-        return title;
-    }
+        public Song( String title, int length, int trackNumber, Albummodel album) {
+            this.title = title;
+            this.length = length;
+            this.trackNumber = trackNumber;
+            this.album = album;
+        }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+        public String getTitle() {
+            return title;
+        }
 
-    public int getLength() {
-        return length;
-    }
+        public void setTitle(String title) {
+            this.title = title;
+        }
 
-    public void setLength(int length) {
-        this.length = length;
-    }
+        public double getLength() {
+            return length;
+        }
 
-    public int getTrackNumber() {
-        return trackNumber;
-    }
+        public void setLength(int length) {
+            this.length = length;
+        }
 
-    public void setTrackNumber(int trackNumber) {
-        this.trackNumber = trackNumber;
-    }
+        public int getTrackNumber() {
+            return trackNumber;
+        }
 
-    public Albummodel getAlbum() {
-        return album;
-    }
+        public void setTrackNumber(int trackNumber) {
+            this.trackNumber = trackNumber;
+        }
 
-    public void setAlbum(Albummodel album) {
-        this.album = album;
-    }
+        public void setAlbum(Albummodel album) {
+            this.album = album;
+        }
 
-    @Override
-    public String toString() {
-        return "Song{" +
-                "title='" + title + '\'' +
-                ", length=" + length +
-                ", trackNumber=" + trackNumber +
-                '}';
-    }
+        public Long getId() {
+            return id;
+        }
+
+
+        public void setId(Long id) {
+            this.id = id;
+        }
 }
