@@ -8,10 +8,17 @@ import java.util.List;
 
 @Entity
 public class Albummodel  {
+
+    public Albummodel( ) {
+
+    }
+
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    @OneToMany Song song
+
+    @OneToMany(mappedBy = "album")
 
     private List<Song> songs;
     private String title;

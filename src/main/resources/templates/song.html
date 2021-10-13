@@ -13,12 +13,11 @@
 </header>
 <main>
     <div class="songHolder">
-        <div th:each="song : ${song}" class="oneSong">
+        <div th:each="song : ${song}" >
             <p>Song title :<span th:text="${song.title}"></span></p>
             <p>Song length :<span th:text="${song.length}"></span></p>
             <p>Track number :<span th:text="${song.trackNumber}"></span></p>
             <p>Album name :<span th:text="${song.album.title}"></span></p>
-            <img src="https://image.flaticon.com/icons/png/512/2480/2480421.png" alt="" />
         </div>
     </div>
 </main>
