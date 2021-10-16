@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.Optional;
+
 public class SongContrroler {
     @Controller
     public class SongController {
@@ -25,22 +27,21 @@ public class SongContrroler {
         @Autowired
         AlbumRepository albumsRepository;
 
-        @PostMapping("/song")
-        public RedirectView createNewBlogPost(@ModelAttribute Dto dto) { // modelattribute when working with form data
 
-            Albummodel album = albumsRepository.findAlbumByTitle(dto.getAlbum()).orElseThrow();
+        @PostMapping("/song")
+        public RedirectView createNewBlogPost(@ModelAttribute Dto dto) {
+
+            Albummodel album = albumsRepository.findByTitle(dto.getAlbum());
             Song newSong = new Song(dto.getTitle(), (int) dto.getLength(), dto.getTrackNumber(),album);
             songRepository.save(newSong);
 
-            return new RedirectView("song");
+            return new RedirectView("albums");
         }
         @GetMapping("/song")
         public String getSongs(Model model) {
             model.addAttribute("songs", songRepository.findAll());
             return "song";
         }
-
-
     }
     @GetMapping("/err")
     public String getNoSong(){

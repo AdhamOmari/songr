@@ -1,6 +1,8 @@
 package com.example.songr.controller;
 
 
+import com.example.songr.albumModel.Dto;
+import com.example.songr.albumModel.Song;
 import com.example.songr.repo.AlbumRepository;
 import com.example.songr.albumModel.Albummodel;
 import com.example.songr.repo.SongRepository;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -70,6 +73,10 @@ public class albumControll {
         model.addAttribute("albums", postRepository.findAll());
         return "albums";
     }
+
+
+
+
     @GetMapping("/err")
     public String getNoSong(){
         return "err";
