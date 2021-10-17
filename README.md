@@ -8,3 +8,4 @@
 > and an imageUrl that is a link to that album’s art.
 > 
 > Testing the constructor setter and gitter
+> > fixed push 
