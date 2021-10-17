@@ -6,7 +6,34 @@
     <title>capitalize</title>
 </head>
 <body>
-<p th:text=" ${name}"></p>
+
+<input type="text" class="form-control" name="album" placeholder="Album name">
+</div>
+<div class="form-group">
+
+    <input type="text" class="form-control" name="title" placeholder="Song name">
+</div>
+<div class="form-group">
+
+    <input type="number" class="form-control" name="length" placeholder="Song length">
+</div>
+<div class="form-group">
+
+    <input type="number" class="form-control" name="trackNumber" placeholder="trackNumber">
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+<ul th:each="song: ${songs}">
+    <p> Id <span th:text="${song.id}"></span></p>
+    <p> Album <span th:text="${song.album.title}"></span></p>
+    <p> Song Name <span th:text="${song.title}"></span></p>
+    <p> Play time <span th:text="${song.length}"></span></p>
+    <p> Track Number <span th:text="${song.trackNumber}"></span></p>
+</ul>
 
 </body>
 </html>

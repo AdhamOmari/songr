@@ -9,15 +9,63 @@
 <h1 class="mainTitle">Albums</h1>
 <main>
 
-    <div th:each="album : ${Albums}" >
-        <img th:src="${album.imageUrl}" />
-        <p>Album title :<p th:text="${album.title}">></p>
-        <p>Artist Name :<p th:text="${album.artist}"></p>
-        <p>Total length :<p th:text="${album.length}"></p>
-        <p>Number of songs : <p th:text="${album.songCount}"></p>
+    <form action="/albums" method="post">
+        <p>Title</p><input type="text" name="title"/>
+        <p>Artist</p><input type="text" name="artist"/>
+        <p>Song Count</p><input type="number" name="songCount"/>
+        <p>Length</p><input type="number" name="length"/>
+        <p>imageUrl</p><input type="text" name="imageUrl"/></br>
+        <p>Submit <input type="submit" value="Submit" /></p>
+    </form>
+    </div>
+    <!-- action is the path to our POST action, method = post -->
+
+    <div class="div1" th:each="album : ${albums}">
+        <p th:text="'Album title : '+ ${album.title}"  > </p>
+        <p th:text= " 'Artist Name :' +${album.artist}"> </p>
+        <p th:text= " 'Number of songs :' + ${album.songCount}"></p>
+        <p th:text=" 'Total length :' +${album.length}"></p>
+        <img th:src="${album.imageUrl}" class="img" />
     </div>
 
+    <div class="div1" th:each="album : ${Albums}">
+        <p th:text="'Album title : '+ ${album.title}"  > </p>
+        <p th:text= " 'Artist Name :' +${album.artist}"> </p>
+        <p th:text= " 'Number of songs :' + ${album.songCount}"></p>
+        <p th:text=" 'Total length :' +${album.length}"></p>
+        <img th:src="${album.imageUrl}" class="img" />
+    </div>
+    <div>
+        <form action="/song" method="post">
+            <div class="form-group">
 
+                <input type="text" class="form-control" name="album" placeholder="Album name">
+            </div>
+            <div class="form-group">
+
+                <input type="text" class="form-control" name="title" placeholder="Song name">
+            </div>
+            <div class="form-group">
+
+                <input type="number" class="form-control" name="length" placeholder="Song length">
+            </div>
+            <div class="form-group">
+
+                <input type="number" class="form-control" name="trackNumber" placeholder="trackNumber">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+    <ul th:each="song: ${songs}">
+        <p> Id <span th:text="${song.id}"></span></p>
+        <p> Album <span th:text="${song.album.title}"></span></p>
+        <p> Song Name <span th:text="${song.title}"></span></p>
+        <p> Play time <span th:text="${song.length}"></span></p>
+        <p> Track Number <span th:text="${song.trackNumber}"></span></p>
+    </ul>
 </main>
 </body>
 </body>

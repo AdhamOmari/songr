@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD SONGS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+<ul th:each="song: ${songs}">
+    <p> Id <span th:text="${song.id}"></span></p>
+    <p> Album <span th:text="${song.album.title}"></span></p>
+    <p> Song Name <span th:text="${song.title}"></span></p>
+    <p> Play time <span th:text="${song.length}"></span></p>
+    <p> Track Number <span th:text="${song.trackNumber}"></span></p>
+</ul>
+
+</body>
+
+</html>
