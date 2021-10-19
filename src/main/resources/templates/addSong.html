@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="albums.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/addsong" method="post">
+  <div class="mb-3">
+    <label class="form-label">Album title</label>
+    <input type="text" class="form-control" name="albumTitle" >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Song Title</label>
+    <input type="text" class="form-control" name="title" >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Song Length in seconds</label>
+    <input type="number" class="form-control" name="length" >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Track Number</label>
+    <input type="number" class="form-control" name="trackNumber" >
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div class="div1" th:each="song : ${songs}">
+  <p th:text="'song title : '+ ${song.title}"  > </p>
+  <p th:text= " 'song lingth :' +${song.length}"> </p>
+  <p th:text= " ' song trackNumber :' + ${song.trackNumber}"></p>
+
+</div>
+
+
+
+
+
+</body>
+</html>

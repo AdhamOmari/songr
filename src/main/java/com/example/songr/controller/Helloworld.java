@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class helloworld {
+public class Helloworld {
 
     @GetMapping("/hello")
     public String helloWorld(@RequestParam(name = "name", required = false, defaultValue = "world") String name,

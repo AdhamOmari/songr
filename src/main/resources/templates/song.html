@@ -1,41 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="albums.css">
+
 <head>
   <meta charset="UTF-8">
-  <title>ADD SONGS</title>
+  <title> SONGS</title>
 </head>
 <body>
-<div>
-  <form action="/song" method="post">
-    <div class="form-group">
 
-      <input type="text" class="form-control" name="album" placeholder="Album name">
-    </div>
-    <div class="form-group">
-
-      <input type="text" class="form-control" name="title" placeholder="Song name">
-    </div>
-    <div class="form-group">
-
-      <input type="number" class="form-control" name="length" placeholder="Song length">
-    </div>
-    <div class="form-group">
-
-      <input type="number" class="form-control" name="trackNumber" placeholder="trackNumber">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+<div class="div1" th:each="song : ${songs}">
+  <p th:text="'song title : '+ ${song.title}"  > </p>
+  <p th:text= " 'song lingth :' +${song.length}"> </p>
+  <p th:text= " ' song trackNumber :' + ${song.trackNumber}"></p>
 
 </div>
-
-
-<ul th:each="song: ${songs}">
-  <p> Album <span th:text="${song.album.title}"></span></p>
-  <p> Song Name <span th:text="${song.title}"></span></p>
-  <p> Play time <span th:text="${song.length}"></span></p>
-  <p> Track Number <span th:text="${song.trackNumber}"></span></p>
-</ul>
-
 </body>
 </html>

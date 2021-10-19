@@ -14,18 +14,18 @@ public class Albummodel  {
     }
 
     @Id
-    @Column(name="id")
+    @Column(name="id",nullable = false)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     @OneToMany(mappedBy = "album")
+    private List<Song> song;
 
-    private List<Song> songs;
     private String title;
-        private String artist;
-        private int songCount;
-        private int length;
-        private String imageUrl;
+    private String artist;
+    private int songCount;
+    private int length;
+    private String imageUrl;
 
     public Long getId() {
         return id;
@@ -45,46 +45,53 @@ public class Albummodel  {
         }
 
 
+    public List<Song> getSong() {
+        return song;
+    }
 
-        public String getTitle() {
-            return title;
-        }
+    public void setSong(List<Song> song) {
+        this.song = song;
+    }
 
-        public void setTitle(String title) {
-            this.title = title;
-        }
+    public String getTitle() {
+        return title;
+    }
 
-        public String getArtist() {
-            return artist;
-        }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-        public void setArtist(String artist) {
-            this.artist = artist;
-        }
+    public String getArtist() {
+        return artist;
+    }
 
-        public int getSongCount() {
-            return songCount;
-        }
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
 
-        public void setSongCount(int songCount) {
-            this.songCount = songCount;
-        }
+    public int getSongCount() {
+        return songCount;
+    }
 
-        public int getLength() {
-            return length;
-        }
+    public void setSongCount(int songCount) {
+        this.songCount = songCount;
+    }
 
-        public void setLength(int length) {
-            this.length = length;
-        }
+    public int getLength() {
+        return length;
+    }
 
-        public String getImageUrl() {
-            return imageUrl;
-        }
+    public void setLength(int length) {
+        this.length = length;
+    }
 
-        public void setImageUrl(String imageUrl) {
-            this.imageUrl = imageUrl;
-        }
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     @Override
     public String toString() {

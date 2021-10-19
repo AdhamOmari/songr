@@ -18,7 +18,7 @@
         <p>Submit <input type="submit" value="Submit" /></p>
     </form>
     </div>
-    <!-- action is the path to our POST action, method = post -->
+
 
     <div class="div1" th:each="album : ${albums}">
         <p th:text="'Album title : '+ ${album.title}"  > </p>
@@ -36,7 +36,7 @@
         <img th:src="${album.imageUrl}" class="img" />
     </div>
 
- 
+
 
 </main>
 </body>

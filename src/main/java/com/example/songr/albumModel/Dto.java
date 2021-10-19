@@ -4,18 +4,12 @@ public class Dto {
     private String title;
     private int length;
     private int trackNumber;
-    private String album;
+    private String albumTitle;
 
-    public Dto(){
+    public Dto() {
 
     }
 
-    public Dto(String title, int length, int trackNumber, String album) {
-        this.title = title;
-        this.length = length;
-        this.trackNumber = trackNumber;
-        this.album = album;
-    }
 
     public String getTitle() {
         return title;
@@ -41,11 +35,11 @@ public class Dto {
         this.trackNumber = trackNumber;
     }
 
-    public String getAlbum() {
-        return album;
+    public String getAlbumTitle() {
+        return albumTitle;
     }
 
-    public void setAlbum(String album) {
-        this.album = album;
+    public void setAlbumTitle(String albumTitle) {
+        this.albumTitle = albumTitle;
     }
 }
